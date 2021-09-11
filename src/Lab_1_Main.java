@@ -128,7 +128,6 @@ public class Lab_1_Main
         sample.add(2);
         sample.add(0);
         Collections.sort(sample);
-        System.out.println(sample);
         String[] wordBank = new String[]{"write", "that", "banana", "hollywood", "tinman"};
         String randomWord = wordBank[(int)(Math.random() * (double)wordBank.length)];
         System.out.println();

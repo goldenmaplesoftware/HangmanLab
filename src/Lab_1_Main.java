@@ -140,9 +140,6 @@ public class Lab_1_Main
         System.out.println("Input a letter  to guess the word (lowercase only)");
         Scanner inputLetter = new Scanner(System.in);
 
-
-
-
         boolean wonGame = false;
         int mistakes = 6;
 
@@ -199,17 +196,28 @@ public class Lab_1_Main
 
     }
 
-
     ///This is where all the action happens
     public static void main(String[] args)
     {
         System.out.println("****HANG MAN********");
         System.out.println("___________________________");
         System.out.println("JEAN JACOB COMTOIS--- A GAME OF HANGMAN 2021\n");
-        System.out.println("Please make a selection of which game you would like to play:\n");
+        System.out.println("Please make a selection of which game you would like to play: Please enter the corresponding number\n");
 
-        GameControl_Topic_1(); ///McDonalds Word Game
-
+        Scanner gameSelection = new Scanner(System.in); ///This controls which element is going to be picked in the list
+        int gamePicked = gameSelection.nextInt(); ///Element that is picked in the below conditional
+            switch (gamePicked)
+            {
+                case 1:
+                    GameControl_Topic_1(); ///McDonalds Word Game
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.out.println("Not an valid option, please make another choice!");
+                    break;
+            }
     }
-
 }

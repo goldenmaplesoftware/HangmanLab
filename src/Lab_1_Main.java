@@ -142,18 +142,62 @@ public class Lab_1_Main
         System.out.println("Input a letter  to guess the word (lowercase only)");
         Scanner inputLetter = new Scanner(System.in);
 
+
+
+
+        boolean wonGame = false;
+        int mistakes = 6;
+
+        while(mistakes > 0) {
+            System.out.println("Input: ");
+            String input = inputLetter.nextLine();
+            char letter = input.charAt(0);
+            boolean guess = false;
+
+            int i;
+            for(i = 0; i < randomWord.length(); ++i) {
+                char w = randomWord.charAt(i);
+                if (w == letter) {
+                    letters[i] = w;
+                    guess = true;
+                }
+            }
+
+            if (!guess) {
+                --mistakes;
+            }
+
+            wonGame = true;
+
+            for(i = 0; i < letters.length; ++i) {
+                if (letters[i] == '*') {
+                    wonGame = false;
+                }
+
+                System.out.print(letters[i]);
+            }
+
+            System.out.println("\n");
+            if (!guess) {
+                if (mistakes == 6) {
+                    wrongGuess1();
+                } else if (mistakes == 5) {
+                    wrongGuess2();
+                } else if (mistakes == 4) {
+                    wrongGuess3();
+                } else if (mistakes == 3) {
+                    wrongGuess4();
+                } else if (mistakes == 2) {
+                    wrongGuess5();
+                } else if (mistakes == 1) {
+                    wrongGuess6();
+                }
+            }
+
+            if (wonGame) {
+                Winning();
+            }
+        }
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

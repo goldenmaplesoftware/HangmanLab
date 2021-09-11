@@ -119,8 +119,8 @@ public class Lab_1_Main
         System.exit(0);
     }
 
-    ///This is where all the action happens
-    public static void main(String[] args)
+
+    public static void GameControl_Topic_1()
     {
         ArrayList<Integer> sample = new ArrayList();
         sample.add(29);
@@ -128,16 +128,15 @@ public class Lab_1_Main
         sample.add(2);
         sample.add(0);
         Collections.sort(sample);
-        String[] wordBank = new String[]{"write", "that", "banana", "hollywood", "tinman"};
+        String[] wordBank = new String[]{"mcnuggets","snackwrap","mcchicken","bigmac", "salad", "fries", "milkshake", "mcdouble"};
         String randomWord = wordBank[(int)(Math.random() * (double)wordBank.length)];
         System.out.println();
         System.out.println("___________________________");
         System.out.println("This word has " + randomWord.length() + " letters.");
         char[] letters = new char[randomWord.length()];
         Arrays.fill(letters, '*');
-        System.out.println("****HANG MAN********");
+        System.out.println("****HANG MAN GAME 1- MCDONALDS WORD GAME********");
         System.out.println("___________________________");
-        System.out.println("JEAN JACOB COMTOIS--- A GAME OF HANGMAN 2021\n");
         System.out.println("Input a letter  to guess the word (lowercase only)");
         Scanner inputLetter = new Scanner(System.in);
 
@@ -199,4 +198,18 @@ public class Lab_1_Main
         }
 
     }
+
+
+    ///This is where all the action happens
+    public static void main(String[] args)
+    {
+        System.out.println("****HANG MAN********");
+        System.out.println("___________________________");
+        System.out.println("JEAN JACOB COMTOIS--- A GAME OF HANGMAN 2021\n");
+        System.out.println("Please make a selection of which game you would like to play:\n");
+
+        GameControl_Topic_1(); ///McDonalds Word Game
+
+    }
+
 }

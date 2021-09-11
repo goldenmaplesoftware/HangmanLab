@@ -5,9 +5,119 @@ import java.util.Scanner;
 
 public class Lab_1_Main
 {
+    public static void wrongGuess1()
+    {
+        System.out.println("-----------|---------");
+        System.out.println("       ___ |        |");
+        System.out.println("     _[___]|        |");
+        System.out.println("       ( ) |        |");
+        System.out.println("        |--|        |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("____________________|");
+        System.out.println("You have 5 more attempts");
+    }
 
+    public static void wrongGuess2()
+    {
+        System.out.println("-----------|---------");
+        System.out.println("       ___ |        |");
+        System.out.println("     _[___]|        |");
+        System.out.println("       ( ) |        |");
+        System.out.println("        |--|        |");
+        System.out.println("        |           |");
+        System.out.println("        |           |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("____________________|");
+        System.out.println("You have 4 more attempts");
+    }
 
+    public static void wrongGuess3()
+    {
+        System.out.println("-----------|---------");
+        System.out.println("       ___ |        |");
+        System.out.println("     _[___]|        |");
+        System.out.println("       ( ) |        |");
+        System.out.println("        |--|        |");
+        System.out.println("     l--|           |");
+        System.out.println("        |           |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("____________________|");
+        System.out.println("You have 3 more attempts");
+    }
 
+    public static void wrongGuess4()
+    {
+        System.out.println("------------|--------");
+        System.out.println("       ___  |       |");
+        System.out.println("     _[___] |       |");
+        System.out.println("       (..) |       |");
+        System.out.println("        |--|        |");
+        System.out.println("     l--|--l        |");
+        System.out.println("        |           |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("                    |");
+        System.out.println("____________________|");
+        System.out.println("You have 2 more attempts");
+    }
+
+    public static void wrongGuess5()
+    {
+        System.out.println("-----------|---------");
+        System.out.println("       ___ |        |");
+        System.out.println("     _[___]|        |");
+        System.out.println("       (oo)|        |");
+        System.out.println("        |--|        |");
+        System.out.println("     l--|--l        |");
+        System.out.println("        |           |");
+        System.out.println("       /            |");
+        System.out.println("      <             |");
+        System.out.println("                    |");
+        System.out.println("____________________|");
+        System.out.println("You have 1 more attempt");
+    }
+
+    public static void wrongGuess6()
+    {
+        System.out.println("------------|--------");
+        System.out.println("       ___  |       |");
+        System.out.println("     _[___] |       |");
+        System.out.println("       (xx) |       |");
+        System.out.println("        |---|       |");
+        System.out.println("     l--|--l        |");
+        System.out.println("        |           |");
+        System.out.println("       / l          |");
+        System.out.println("      <   >         |");
+        System.out.println("                    |");
+        System.out.println("____________________|");
+        System.out.println("You lose.  Game Over.");
+        System.exit(0);
+    }
+
+    public static void Winning()
+    {
+        System.out.println("CONGRATS YOU GUESSED THE WORD PROPERLY,  I GUESS OUR LITTLE BUDDY GETS TO GO FREE! ");
+        System.out.println("-----------|---------");
+        System.out.println("                    |");
+        System.out.println("       ___          |");
+        System.out.println("     _[___]         |");
+        System.out.println("       ('')         |");
+        System.out.println("    L   |   L       |");
+        System.out.println("     l--|---L       |");
+        System.out.println("        |           |");
+        System.out.println("       / l          |");
+        System.out.println("      <   >         |");
+        System.out.println("____________________|");
+        System.exit(0);
+    }
 
     ///This is where all the action happens
     public static void main(String[] args)
@@ -31,6 +141,7 @@ public class Lab_1_Main
         System.out.println("JEAN JACOB COMTOIS--- A GAME OF HANGMAN 2021\n");
         System.out.println("Input a letter  to guess the word (lowercase only)");
         Scanner inputLetter = new Scanner(System.in);
+
     }
 
 

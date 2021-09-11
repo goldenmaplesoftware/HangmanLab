@@ -196,6 +196,82 @@ public class Lab_1_Main
 
     }
 
+    public static void GameControl_Topic_2()
+    {
+        ArrayList<Integer> sample = new ArrayList();
+        sample.add(29);
+        sample.add(28);
+        sample.add(2);
+        sample.add(0);
+        Collections.sort(sample);
+        String[] wordBank = new String[]{"migos","offset","juicyj","lildurk", "chiefkeef", "fredosantana", "asaprocky","asapferg","schoolboyq","absoul","eminem","wizkhalifa"};
+        String randomWord = wordBank[(int)(Math.random() * (double)wordBank.length)];
+        System.out.println();
+        System.out.println("___________________________");
+        System.out.println("This word has " + randomWord.length() + " letters.");
+        char[] letters = new char[randomWord.length()];
+        Arrays.fill(letters, '*');
+        System.out.println("****HANG MAN GAME 2- RAPPER NAME WORD GAME********");
+        System.out.println("___________________________");
+        System.out.println("Input a letter  to guess the word (lowercase only)");
+        Scanner inputLetter = new Scanner(System.in);
+
+        boolean wonGame = false;
+        int mistakes = 6;
+
+        while(mistakes > 0) {
+            System.out.println("Input: ");
+            String input = inputLetter.nextLine();
+            char letter = input.charAt(0);
+            boolean guess = false;
+
+            int i;
+            for(i = 0; i < randomWord.length(); ++i) {
+                char w = randomWord.charAt(i);
+                if (w == letter) {
+                    letters[i] = w;
+                    guess = true;
+                }
+            }
+
+            if (!guess) {
+                --mistakes;
+            }
+
+            wonGame = true;
+
+            for(i = 0; i < letters.length; ++i) {
+                if (letters[i] == '*') {
+                    wonGame = false;
+                }
+
+                System.out.print(letters[i]);
+            }
+
+            System.out.println("\n");
+            if (!guess) {
+                if (mistakes == 6) {
+                    wrongGuess1();
+                } else if (mistakes == 5) {
+                    wrongGuess2();
+                } else if (mistakes == 4) {
+                    wrongGuess3();
+                } else if (mistakes == 3) {
+                    wrongGuess4();
+                } else if (mistakes == 2) {
+                    wrongGuess5();
+                } else if (mistakes == 1) {
+                    wrongGuess6();
+                }
+            }
+
+            if (wonGame) {
+                Winning();
+            }
+        }
+
+    }
+
     ///This is where all the action happens
     public static void main(String[] args)
     {
@@ -212,6 +288,7 @@ public class Lab_1_Main
                     GameControl_Topic_1(); ///McDonalds Word Game
                     break;
                 case 2:
+                    GameControl_Topic_2(); ///Rapper Names Word Game
                     break;
                 case 3:
                     break;

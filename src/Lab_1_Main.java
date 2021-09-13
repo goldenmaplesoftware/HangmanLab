@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -119,6 +121,44 @@ public class Lab_1_Main
         System.exit(0);
     }
 
+
+    public static String[] readStringContentFromFile(String file)
+    {
+
+        ///Create and populate the array from the file
+
+        int lines=0;
+        try
+        {
+            Scanner inputFileContentRead=new Scanner(new File(file));  ///Content to be read
+            while (inputFileContentRead.hasNextLine()) ///How many elements are in the file/lines (one word per line)
+            {
+                lines++; ///Itterates based on the lines in the text file
+                inputFileContentRead.next(); ///Breaks the infinite loop
+            }
+
+            String[] wordBank=new String[lines]; ///This is the word bank that gets retrieved
+
+            Scanner inputFileContentWrite=new Scanner(new File(file));  ///Writes the content from the text file
+
+            for (int i=0;i<lines;i++) ///writing loop
+            {
+                wordBank[i]=inputFileContentWrite.next();
+            }
+
+            return wordBank;
+
+        }
+
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File not found ERROR!");
+        }
+        return null;
+
+
+    }
+
     ///GAME 1
     public static void GameControl_Topic_1()
     {
@@ -128,14 +168,25 @@ public class Lab_1_Main
         sample.add(2);
         sample.add(0);
         Collections.sort(sample);
-        String[] wordBank = new String[]{"mcnuggets","snackwrap","mcchicken","bigmac", "salad", "fries", "milkshake", "mcdouble"};
+
+        String filePath="src/WordListMcDonalds.txt";  ///Note when reading the files there CANNOT BE BLANKSPACES!!!!!
+
+        String[] wordBank = readStringContentFromFile(filePath); ///Only line that changes based on the game mode selected
+
+
+        assert wordBank != null;
+        /* DEBUGGING FEATURE TO MAKE SURE THE WORD BANKS ARE WORKING
+        for (String s : wordBank)
+        {
+            System.out.println(s);
+        }
+        */
         String randomWord = wordBank[(int)(Math.random() * (double)wordBank.length)];
         System.out.println();
         System.out.println("___________________________");
         System.out.println("This word has " + randomWord.length() + " letters.");
         char[] letters = new char[randomWord.length()];
         Arrays.fill(letters, '*');
-        System.out.println("****HANG MAN GAME 1- MCDONALDS WORD GAME********");
         System.out.println("___________________________");
         System.out.println("Input a letter  to guess the word (lowercase only)");
         Scanner inputLetter = new Scanner(System.in);
@@ -197,7 +248,7 @@ public class Lab_1_Main
     }
 
     ///GAME 2
-    public static void GameControl_Topic_3()
+    public static void GameControl_Topic_2()
     {
         ArrayList<Integer> sample = new ArrayList();
         sample.add(29);
@@ -205,14 +256,25 @@ public class Lab_1_Main
         sample.add(2);
         sample.add(0);
         Collections.sort(sample);
-        String[] wordBank = new String[]{"migos","offset","juicyj","lildurk", "chiefkeef", "fredosantana", "asaprocky","asapferg","schoolboyq","absoul","eminem","wizkhalifa"};
+
+        ///This is the only section that changes between game modes
+        String filePath="src/WordListRapperName.txt";
+        String[] wordBank = readStringContentFromFile(filePath); ///Only line that changes based on the game mode selected
+
+
+        assert wordBank != null;
+        /* DEBUGGING FEATURE TO MAKE SURE THE WORD BANKS ARE WORKING
+        for (String s : wordBank)
+        {
+            System.out.println(s);
+        }*/
+
         String randomWord = wordBank[(int)(Math.random() * (double)wordBank.length)];
         System.out.println();
         System.out.println("___________________________");
         System.out.println("This word has " + randomWord.length() + " letters.");
         char[] letters = new char[randomWord.length()];
         Arrays.fill(letters, '*');
-        System.out.println("****HANG MAN GAME 2- RAPPER NAME WORD GAME********");
         System.out.println("___________________________");
         System.out.println("Input a letter  to guess the word (lowercase only)");
         Scanner inputLetter = new Scanner(System.in);
@@ -274,7 +336,7 @@ public class Lab_1_Main
     }
 
     ///GAME 3
-    public static void GameControl_Topic_2()
+    public static void GameControl_Topic_3()
     {
         ArrayList<Integer> sample = new ArrayList();
         sample.add(29);
@@ -282,14 +344,26 @@ public class Lab_1_Main
         sample.add(2);
         sample.add(0);
         Collections.sort(sample);
-        String[] wordBank = new String[]{"wii","gamecube","supernintendo","segadreamcast", "xboxone", "playstation", "segagenesis","segacd","xbox","gameboy"};
+
+        ///This is the only section that changes between game modes
+        String filePath="src/WordListConsoles.txt";
+        String[] wordBank = readStringContentFromFile(filePath); ///Only line that changes based on the game mode selected
+
+
+        assert wordBank != null;
+        /* DEBUGGING FEATURE TO MAKE SURE THE WORD BANKS ARE WORKING
+        for (String s : wordBank)
+        {
+            System.out.println(s);
+        }
+        */
+
         String randomWord = wordBank[(int)(Math.random() * (double)wordBank.length)];
         System.out.println();
         System.out.println("___________________________");
         System.out.println("This word has " + randomWord.length() + " letters.");
         char[] letters = new char[randomWord.length()];
         Arrays.fill(letters, '*');
-        System.out.println("****HANG MAN GAME 3- VIDEO GAME CONSOLE WORD GAME********");
         System.out.println("___________________________");
         System.out.println("Input a letter  to guess the word (lowercase only)");
         Scanner inputLetter = new Scanner(System.in);
@@ -352,6 +426,7 @@ public class Lab_1_Main
 
 
 
+
     ///This is where all the action happens
     public static void main(String[] args)
     {
@@ -362,20 +437,27 @@ public class Lab_1_Main
 
         Scanner gameSelection = new Scanner(System.in); ///This controls which element is going to be picked in the list
         int gamePicked = gameSelection.nextInt(); ///Element that is picked in the below conditional
-            switch (gamePicked)
-            {
-                case 1:
-                    GameControl_Topic_1(); ///McDonalds Word Game
-                    break;
-                case 2:
-                    GameControl_Topic_2(); ///Rapper Names Word Game
-                    break;
-                case 3:
-                    GameControl_Topic_3(); ///Game Console Word Game
-                    break;
-                default:
-                    System.out.println("Not an valid option, please make another choice!");
-                    break;
-            }
+
+        switch (gamePicked)
+        {
+            case 1:
+                System.out.println("****HANG MAN GAME 1- MCDONALDS WORD GAME********");
+                GameControl_Topic_1();
+                break;
+            case 2:
+                System.out.println("****HANG MAN GAME 2- RAPPER NAME WORD GAME********");
+                GameControl_Topic_2();
+                break;
+
+            case 3:
+                System.out.println("****HANG MAN GAME 3- CONSOLE NAME WORD GAME********");
+                GameControl_Topic_3();
+                break;
+
+            default:
+                System.out.println("Error");
+                break;
+        }
+
     }
 }

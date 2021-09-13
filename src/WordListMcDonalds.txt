@@ -1,0 +1,8 @@
+mcnuggets
+snackwrap
+mcchicken
+bigmac
+salad
+fries
+milkshake
+mcdouble

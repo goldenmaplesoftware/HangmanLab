@@ -1,0 +1,10 @@
+wii
+gamecube
+nintendosixtyfour
+playstationfour
+playstationfive
+xboxone
+xbox
+supernintendo
+ataritwentysixhundred
+commodoresixtyfour
